@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head><title>Auto Fill Form</title></head>
+<body>
+  <h2>Auto-Filled Form</h2>
+  <form method="POST" action="/submit-form">
+    <label>Name: <input type="text" name="name" value="{{ name }}"></label><br>
+    <label>Email: <input type="text" name="email" value="{{ email }}"></label><br>
+    <label>Address: <input type="text" name="address" value="{{ address }}"></label><br>
+    <label>Order No: <input type="text" name="order" value="{{ order }}"></label><br>
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head><title>Submission Result</title></head>
+<body>
+  <h2>Form Submitted</h2>
+  <ul>
+    <li><strong>From:</strong> {{ from_name }} ({{ from_email }})</li>
+    <li><strong>To:</strong> {{ to_name }} ({{ to_email }})</li>
+    <li><strong>Subject:</strong> {{ subject }}</li>
+    <li><strong>Body:</strong> {{ body }}</li>
+    <li><strong>Task:</strong> {{ task }}</li>
+    <li><strong>Status:</strong> {{ status }}</li>
+    <li><strong>Submitted Form Data:</strong>
+      <ul>
+        <li>Name: {{ form_data.name }}</li>
+        <li>Email: {{ form_data.email }}</li>
+        <li>Address: {{ form_data.address }}</li>
+        <li>Order No: {{ form_data.order }}</li>
+      </ul>
+    </li>
+  </ul>
+</body>
+</html>
