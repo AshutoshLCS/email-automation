@@ -1,64 +1,90 @@
 
-# Gmail Email Automation with Ollama and Selenium
+# Email Automation with Flask and Selenium
 
-This project automates the process of reading emails from Gmail, extracting key information using Ollama’s Mistral model, and automatically filling and submitting a web form using Selenium.
+## Description
 
-## Features
-- Automatically fetches the latest email from a Gmail inbox.
-- Uses Ollama’s Mistral model to extract structured data such as full name, email, address, and order number.
-- Launches a browser, auto-fills a form with the extracted data, and submits it.
-- Displays a result page with both the original email content and the submitted form data.
-- All actions are logged for transparency during execution.
+This solution automates the process of reading an email from Gmail, extracting key information using Ollama’s Mistral model, and auto-submitting a web form using Selenium.
 
-## Prerequisites
-Before you run the application, make sure you have the following installed:
+### Features:
+1. Fetches the latest email from your Gmail inbox.
+2. Uses Ollama's Mistral model to detect the task (e.g., order, registration) and extract structured fields like name, email, address, and order number.
+3. Opens a browser window, fills a form with the extracted data, and submits it.
+4. Displays the original email and submitted form data on a result page.
 
-- Python 3.x
-- Selenium
-- Ollama (Mistral model)
-- Flask
-- Chrome WebDriver (for Selenium)
+### Requirements:
+1. **Windows**
+2. **Python 3.8+**
+3. **Google Chrome** installed
+4. **ChromeDriver** for Selenium
+5. **Ollama** for task detection and data extraction
+
+---
 
 ## Setup Instructions
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/gmail-email-automation.git
-   cd gmail-email-automation
-   ```
+### Step 1: Install Dependencies
 
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+1. **Clone the repository**:
+    ```
+    git clone <your-repository-url>
+    cd <project-directory>
+    ```
 
-3. Create a `.env` file in the project root directory and add your Gmail credentials:
-   ```
-   EMAIL_USER=your_email@gmail.com
-   EMAIL_PASS=your_email_password_or_app_specific_password
-   ```
+2. **Install required libraries**:
+    Use the following command to install dependencies.
+    ```
+    pip install -r requirements.txt
+    ```
 
-4. Ensure that Chrome WebDriver is installed and accessible on your system.
+3. **Install Google Chrome and ChromeDriver**:
+    - Download Google Chrome: https://www.google.com/chrome/
+    - Download [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/downloads) matching your Google Chrome version.
+    - Extract ChromeDriver and ensure the path is added to your system's `PATH` variable or placed in the project directory.
 
-## Running the Application
+4. **Install Ollama**:
+    - Follow the [Ollama installation guide](https://ollama.com) to set up the Ollama model for text extraction.
 
-1. Start the Flask app:
-   ```bash
-   python app.py
-   ```
+---
 
-2. The app will automatically fetch the latest email, extract data, and simulate form submission in the browser.
+### Step 2: Set Up Environment Variables
 
-3. After submission, the result page will display the form data along with the original email content.
+Create a `.env` file in your project directory with the following contents:
 
-## Notes
-- The application may take up to **2 minutes** to process the email and submit the form, depending on model load and system performance. Please wait during this time — no manual intervention is required.
-- All actions are logged in the terminal for visibility.
+```
+EMAIL_USER=<your-email>
+EMAIL_PASS=<your-email-password-or-app-password>
+```
 
-## Troubleshooting
-- If you encounter issues with Gmail login, consider using an **app-specific password** if you have **2FA** enabled on your Gmail account.
-- Ensure the Chrome WebDriver is properly installed and matches your browser version.
+*Note: For security, you may want to create an app-specific password in Gmail if you have two-factor authentication enabled.*
 
-## License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+### Step 3: Running the Flask App
+
+1. **Run the application**:
+    ```
+    python app.py
+    ```
+
+2. **Open the browser**: The browser window will open automatically, and the automation process will start.
+
+---
+
+### Step 4: Using the Application
+
+1. **Email processing**: The app will fetch the latest email, extract information using the Ollama Mistral model, and submit the form.
+2. **Form submission**: After filling the form with the extracted data, the app will submit the form and display the result on a new page showing the submitted form and email data.
+
+---
+
+### Troubleshooting
+
+- **Slow Response**: The response from Ollama may take up to ~2 minutes, depending on the model and system load.
+- **Selenium Issues**: Ensure that ChromeDriver is installed correctly and matches your Google Chrome version.
+
+---
+
+### Note
+
+1. **Logging**: All actions are logged to the terminal for visibility during execution.
+2. **Response Time**: The form submission process may take up to 2 minutes depending on the load, so no manual refresh is needed.
